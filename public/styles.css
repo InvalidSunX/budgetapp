@@ -1,0 +1,33 @@
+body, html{
+    background-color: #313131;
+    font-family: Arial, sans-serif;
+    color: white;
+}
+
+.container{
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #444444;
+    border-radius: 10px;
+    box-shadow: 0 0 4px rgb(0, 43, 7);
+}
+
+table{
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.left{
+    text-align: left;
+}
+
+table td{
+    border-top: 1px solid rgb(99, 99, 99);
+    border-bottom: 1px solid rbg(99, 99, 99);
+    padding-bottom: 4px;
+    padding-top: 4px;
+}
