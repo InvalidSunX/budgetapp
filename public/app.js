@@ -59,3 +59,33 @@ function renderEvents(events) {
 }
 
 renderEvents(fakeEvents);
+
+// Event logic
+const eventForm = document.getElementById('event-form');
+
+eventForm.addEventListener('submit', async function (event) {
+    event.preventDefault();
+    const formData = new FormData(eventForm);
+    const data = Object.fromEntries(formData.entries());
+    var pushData = {
+        id: fakeEvents.length + 1,
+        name: data.name,
+        type: data.type,
+        amount: data.number,
+        due_date: data.date,
+        frequency: data.frequency,
+        active: true,
+        notes: ''
+    }
+    const response = await fetch('/api/events', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(pushData)
+    });
+
+    const result = await response.json();
+    console.log(result);
+    eventForm.reset();
+});
