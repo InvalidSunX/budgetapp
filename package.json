@@ -18,7 +18,9 @@
   },
   "homepage": "https://github.com/InvalidSunX/budgetapp#readme",
   "dependencies": {
+    "dotenv": "^17.4.2",
     "express": "^5.2.1",
+    "socket.io": "^4.8.3",
     "sqlite": "^5.1.1"
   }
 }

@@ -1,0 +1,53 @@
+BILL PROCESSING
+- User opens bill processing page
+- Express serves the page
+- User submits a bill/paycheck form
+- Express receives the form data
+- Express validates it
+= Express saves it to SQLite (sanitized)
+- Express redirects back to the page
+- Page displays updated financial events
+
+FORM DESIGN
+- (String) Name
+- (String) Type (Bill, Paycheck)
+- (Number) Amount
+- (Date) Due Date
+- (String) Frequency (Weekly, Biweekly, Monthly, Quarterly, Annually)
+- (Boolean) Active checkbox
+- (String) Optional Notes
+
+DB Structure "financial_events"
+- id (INTEGER) PRIMARY KEY
+- name (TEXT) NOT NULL UNIQUE
+- type (TEXT) NOT NULL
+- amount (REAL) NOT NULL
+- due_date (TEXT) NOT NULL
+- frequency (TEXT) NOT NULL
+- active (INTEGER) NOT NULL DEFAULT 1
+- notes (TEXT)
+- created_at (TEXT) DEFAULT CURRENT_TIMESTAMP
+- updated_at (TEXT) DEFAULT CURRENT_TIMESTAMP
+
+
+VALIDATION
+- Name is required
+- Type is required
+- Amount is required and must be greater than 0
+- Due Date is required
+- Frequency is required
+- No duplicate names
+- Active checkbox is optional
+
+DISPLAY LOGIC
+- After saving entries, display all entries in a table
+- Entries should be sortable by due date, amount, frequency, active, type, or names 
+- Entries should be filterable by type (Bill, Paycheck) and active status
+- Entries should be deletable
+
+DATE GENERATION
+- Due Date is required
+- Frequency is required
+- Generate next due date based
+- Present dates as (String) MMM DD, and YYYY if different year than current year
+
